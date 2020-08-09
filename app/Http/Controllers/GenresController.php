@@ -7,13 +7,20 @@ use MongoDB;
 
 class GenresController extends Controller
 {
-    public function GenresIndex() {
-        $collection = (new MongoDB\Client)->VidegamesE->Genre;
-        $gameCount = $collection->count();
-        $page = request("pg") == 0 ? 1 : request("pg");
-        $genre = $collection->find([], [ "limit" => 12, "skip" => ($page - 1) * 12 ]);    
-        return view('Genre.Index', ["genres" => $genres, "gameCount" => $gameCount ]);
-    }
+// Index Genre
+public function GenreIndex() {
+    $collection = (new MongoDB\Client)->VidegamesE->Genre;
+    $genreCount = $collection->count();
+    $page = request("pg") == 0 ? 1 : request("pg");
+    $genres = $collection->find([], [ "limit" => 12, "skip" => ($page - 1) * 12 ]);    
+    return view('Genres.Index', ["genres" => $genres, "genreCount" => $genreCount ]);
+}
+
+public function GenreDetails($id) {
+    $collection = (new MongoDB\Client)->VidegamesE->Genre;
+    $genres = $collection->findOne([ "_id" => new MongoDB\BSON\ObjectId($id) ]);
+    return view("Genres.Details", ["genres" => $genres]);
+}
 
 // AdminGenre
 
@@ -38,12 +45,13 @@ class GenresController extends Controller
         $collection = (new MongoDB\Client)->VidegamesE->Genre;
         $insertOneResult = $collection->insertOne($genre);
         if ($insertOneResult->getInsertedCount() == 1); 
+        return redirect("/admin/genre/");
     }
 
     public function Edit($id) {
         $collection = (new MongoDB\Client)->VidegamesE->Genre;
-        $game = $collection->findOne([ "_id" => new MongoDB\BSON\ObjectID($id) ]);
-        return view('Admin.genres.Edit', [ "genre" => $genre ]);
+        $genre = $collection->findOne([ "_id" => new MongoDB\BSON\ObjectID($id) ]);
+        return view('Admin.genres.edit', [ "genre" => $genre ]);
     }   
 
     public function Update(){
@@ -56,7 +64,7 @@ class GenresController extends Controller
         ], [
             '$set' => $genre
         ]);
-        return redirect('/admin/genres/');
+        return redirect('/admin/genre/');
     }
 
     public function Delete($id) {
@@ -70,7 +78,7 @@ class GenresController extends Controller
         $deleteOneResult = $collection->deleteOne([
             "_id" => new \MongoDB\BSON\ObjectId(request("genreid"))
         ]);
-        return redirect('/admin/genres/');
+        return redirect('/admin/genre/');
     }
 
     public function Show($id)

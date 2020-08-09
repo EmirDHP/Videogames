@@ -8,17 +8,16 @@
                 <div class="card">
                     
                     <div class="card-body">
-                        <h5 class="card-title">{{ $game->videogame_game}}</h5>
-                        <p class="card-text"><b>: </b> {{ $game->genre_id }}</p>
+                        <h5 class="card-title">{{ $game->videogame_game }}</h5>
                     </div>
                     <ul class="list-group list-group-flash">
-                     <li class= "list-group-item"><b>Platform:</b> {{ $game->platform_id }}</li> 
-                     <li class= "list-group-item" ><b>Publisher:</b>  {{ $game->publisher_id }}</li> 
-                     <li class= "list-group-item"><b>Year:</b>  {{ $game->year}}</li> 
+                     <li class= "list-group-item"><b>Year:</b>  {{ $game->year }}</li> 
+                     <li class= "list-group-item"><b>Rating:</b>  {{ $game->rating }}</li> 
                     </ul>
                         <div class="card-body">
-                        <a href="/admin/games/edit/{{ $game->_id }}" class="card-link">Edit</a>
-                        <a href="/admin/games/delete/{{ $game->_id }}" class="card-link">Delete</a>
+                        <a href="/admin/games/" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Back</a>
+                        <a type="button" class="btn btn-secondary" href="/admin/games/edit/{{ $game->_id }}" class="card-link">Edit</a>
+                        <a type="button" class="btn btn-danger" href="/admin/games/delete/{{ $game->_id }}" class="card-link">Delete</a>
                         </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
                         <h4 class="card-title"><b>{{ $genre->genre}}</b></h4>
                     </div>
                     <div class="card-body">
-                        <a href="/admin/genres/" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Back</a>
+                        <a href="/admin/genre/" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Back</a>
                         <a href="/admin/genres/edit/{{ $genre->_id }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
                         <a href="/admin/genres/delete/{{ $genre->_id }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a>
                     </div>
