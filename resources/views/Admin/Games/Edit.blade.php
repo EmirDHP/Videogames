@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Edit Gam</h1>
+                <h1>Edit Game</h1>
                 <form action="/admin/games/edit" method="POST">
                 @csrf
                 <input type="hidden" name="gameid" id="gameid" value="{{ $game->_id}}">
