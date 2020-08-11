@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
             <div class="col-md-12">
-                <h1>Platfomrs</h1>
+                <h1>Platforms</h1>
                 <a type="button" class="btn btn-success" href="/admin/plat/create">New Platform</a>
             </div>
             <br>

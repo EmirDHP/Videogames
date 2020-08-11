@@ -11,7 +11,7 @@
                         <h5 class="card-title">{{ $pub->publisher_name }}</h5>
                     </div>
                     <ul class="list-group list-group-flash">
-                     <li class= "list-group-item" ><b>Year:</b>  {{ $pub->publisher_name }}</li> 
+                     <li class= "list-group-item" ><b>Publisher Name:</b>  {{ $pub->publisher_name }}</li> 
                      <li class= "list-group-item"><b>Description:</b>  {{ $pub->description }}</li> 
                     </ul>
                         <div class="card-body">

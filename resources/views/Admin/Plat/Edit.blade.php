@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Edit Movie</h1>
+                <h1>Edit Platform</h1>
                 <form action="/admin/plat/edit" method="POST">
                 @csrf
                 <input type="hidden" name="platid" id="platid" value="{{ $plat->_id}}">

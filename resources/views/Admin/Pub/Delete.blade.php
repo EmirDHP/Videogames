@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Delete Movie</h1>
+                <h1>Delete Publisher</h1>
                 <form action="/admin/pub/delete" method="POST">
                     @csrf
                     @method('DELETE')
